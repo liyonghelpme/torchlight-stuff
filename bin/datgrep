@@ -5,15 +5,16 @@ import os
 import sys
 
 
-def search_path(path='.'):
+def search_path(path):
     searchterm = sys.argv[1]
-    datlist = glob.glob('*.dat')
+    datlist = glob.glob(os.path.join(path, '*.dat'))
     for f in datlist:
-        filename = os.path.join(path, f)
-        data = codecs.open(filename).read().decode(encoding='UTF-16-LE')
+        data = codecs.open(f).read().decode(encoding='UTF-16-LE')
         if searchterm in data:
-            print(filename)
+            print(f)
+
 
 
 if __name__ == '__main__':
-    search_path()
+    for d in os.walk('.'):
+        search_path(d[0])
