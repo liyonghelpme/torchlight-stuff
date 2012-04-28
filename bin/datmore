@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import codecs
+import sys
+
+
+def display_dat(filename):
+    f = codecs.open(filename).read()[2:].decode(encoding='UTF-16-LE')
+    for l in f.split('\r\n'):
+        print(l)
+
+
+if __name__ == '__main__':
+    display_dat(sys.argv[1])
