@@ -5,7 +5,7 @@ import sys
 
 def display_dat(filename):
     f = codecs.open(filename).read()[2:].decode(encoding='UTF-16-LE')
-    for l in f.split('\r\n'):
+    for l in f.split('\r\n')[:-1]:
         print(l)
 
 
