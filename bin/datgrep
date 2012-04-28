@@ -5,8 +5,7 @@ import os
 import sys
 
 
-def search_path(path):
-    searchterm = sys.argv[1]
+def search_path(path, searchterm):
     datlist = glob.glob(os.path.join(path, '*.dat'))
     for f in datlist:
         data = codecs.open(f).read().decode(encoding='UTF-16-LE')
@@ -17,4 +16,4 @@ def search_path(path):
 
 if __name__ == '__main__':
     for d in os.walk('.'):
-        search_path(d[0])
+        search_path(d[0], sys.argv[1])
