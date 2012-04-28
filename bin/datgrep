@@ -5,12 +5,22 @@ import os
 import sys
 
 
+
+def print_search_lines(filename, searchterm):
+    f = codecs.open(filename).read()[2:].decode(encoding='UTF-16-LE')
+    for ln, lt in enumerate(f.split('\r\n')[:-1]):
+        if searchterm in lt:
+            print(str(ln+1) + ': ' + lt)
+
+
 def search_path(path, searchterm):
     datlist = glob.glob(os.path.join(path, '*.dat'))
     for f in datlist:
         data = codecs.open(f).read().decode(encoding='UTF-16-LE')
         if searchterm in data:
             print(f)
+            print_search_lines(f, searchterm)
+            print()
 
 
 
