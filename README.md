@@ -10,5 +10,8 @@ datcat
 
 mods/
 Gemogrifier
+HyperGems
+LazyStacks
 PolearmUpgrade
+ReducedPunishment
 YarrMeGold
